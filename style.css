@@ -1,0 +1,84 @@
+body {
+    background: #000;
+    color: #e95;
+    /* font-family: 'Forum', serif; */
+    /* font-family: 'Overlock', serif; */
+    font-family: 'Averia Serif Libre', serif;
+    /* font-family: 'Chelsea Market', serif; */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+li {
+    list-style: none;
+}
+
+.overlay-textbox {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.6em;
+    height: auto;
+    margin-left: 12%;
+    margin-top: 10%;
+    max-width: 50%;
+}
+
+.option-list {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 0;
+    margin-top: 24px;
+    padding-left: 8px;
+}
+
+.option-list > li {
+    background: rgba(238, 153, 85, .1);
+    cursor: pointer;
+    margin-bottom: 6px;
+    padding: 0 24px 0 24px;
+}
+
+.option-list > li:hover {
+    background: rgba(238, 153, 85, .3);
+}
+
+
+.text-prompt {
+    align-items: center;
+    background: rgba(238, 153, 85, .1);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 0;
+    margin-top: 24px;
+    padding-top: 12px;
+}
+
+.text-prompt-keyboard {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 80%;
+}
+
+.text-prompt-keyboard > li {
+    background: #000;
+    cursor: pointer;
+    text-align: center;
+    line-height: 200%;
+    height: 50px;
+    margin: 6px;
+    width: 50px;
+}
+
+.text-prompt-keyboard > .enter-key {
+    width: 75px;
+}
+
+.text-prompt-keyboard > li:hover {
+    background: rgba(238, 153, 85, .3);
+}
