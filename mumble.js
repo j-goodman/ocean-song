@@ -123,8 +123,8 @@ nameMumbler.names = [
 		'Teukros', 'Agamemnon', 'Menelaos', 'Klytemnestra', 'Medea', 'Iason',
 		'Herakles', 'Perseos', 'Diomedes', 'Telemakhos', 'Orpheos', 'Eurydike',
 		'Tireseas', 'Pentheos', 'Argos', 'Kalypso', 'Polyphemos', 'Minos', 'Leto',
-		'Asclepios', 'Atalanta', 'Autolykos', 'Glaukos', 'Laertes', 'Peleos',
-		'Theseus', 'Ariadne'
+		'Asklepios', 'Atalanta', 'Autolykos', 'Glaukos', 'Laertes', 'Peleos',
+		'Theseus', 'Ariadne', 'Bellerophon', 'Kadmos', 'Daidalos', 'Ikaros'
 ]
 nameMumbler.names.map((item) => {
 	  nameMumbler.read(item)

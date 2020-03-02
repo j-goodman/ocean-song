@@ -7,10 +7,17 @@
         <link href="https://fonts.googleapis.com/css?family=Averia+Serif+Libre|Chelsea+Market|Forum|Overlock&display=swap" rel="stylesheet">
     </head>
     <body>
-        <div id='intro-box', class='overlay-textbox'></div>
+        <div class='text-container'>
+            <div id='intro-box', class='overlay-textbox'></div>
+        </div>
+        <canvas id='canvas' class='dark' width='1920' height='1080'></canvas>
         <script src='mumble.js'></script>
         <script src='game-data.js'></script>
         <script src='map-data.js'></script>
         <script src='game.js'></script>
+        <img id='map-image' class='non-display' src='images/map-transparent.png' alt=''>
+        <img id='polis-image' class='non-display' src='images/map-icons/polis.png' alt=''>
+        <img id='citadel-image' class='non-display' src='images/map-icons/citadel.png' alt=''>
+        <img id='red-square-image' class='non-display' src='images/map-icons/red-square.png' alt=''>
     </body>
 </html>

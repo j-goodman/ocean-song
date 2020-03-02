@@ -1,4 +1,4 @@
-game.textSpeed = 88
+game.textSpeed = 32//88
 
 let pick = (list, count=1) => {
     if (count > 1) {
@@ -19,6 +19,7 @@ let shuffle = (array) => {
 
 let Hero = function () {
     this.name = ''
+    this.location = null
     this.stats = {
         strength: 0,
         speed: 0,
@@ -31,7 +32,7 @@ let narrateIntro = () => {
     let textContainer = document.getElementById('intro-box')
     let textbox = document.createElement('div')
     textContainer.appendChild(textbox)
-    let text = `Sing|,|| O| Muse|,||| of that hero so||||`
+    let text = `||||||||Sing|||,||| O|| Muse|,||| of that hero so||||`
     let hero = new Hero ()
     hero.stats.strength = 2
     hero.stats.speed = 2
@@ -48,7 +49,7 @@ let narrateIntro = () => {
             }[answer]] += 4
             let text = ` ${answer}||,|| beloved by||||`
             read(text, textbox, () => {
-                let gods = pick(game.data.gods, 3)
+                let gods = pick(game.data.gods, 4)
                 let godNames = gods.map(god => {
                     return `${pick(god.adjectives)} ${god.name}`
                 })
@@ -73,19 +74,26 @@ let narrateIntro = () => {
                                 hero.sex = answer === 'son' ? 'M' : 'F'
                                 let parentName = nameMumbler.mumble()
                                 let parentSex = pick(['M', 'M', 'M', 'F'])
-                                let home = pick(game.data.places)
+                                let placeNames = Object.keys(game.data.map)
+                                let home = game.data.map[pick(placeNames.filter(name => {
+                                    return ['Thrace', 'Crete', 'Hellas', 'Anatolia'].includes(game.data.map[name].nation)
+                                }))]
+                                hero.location = home
                                 let descriptor = ''
-                                if (home.epithets.city.length > 0) {
-                                    descriptor = pick(home.epithets.city)
-                                }
+                                descriptor = pick(home.adjectives)
                                 let text = ` ${answer} of ${parentName}, ${parentSex === 'M' ? 'king' : 'queen'} of ${descriptor} ${home.name}.|| Tell the|| life|||| and|| death of|||||`
                                 read(text, textbox, () => {
                                     let prompt = textPrompt(textbox, game.data.alphabet, answer => {
                                         prompt.parentElement.removeChild(prompt)
-                                        hero.name = answer
-                                        let text = ` ${answer}. Begin when ${hero.sex === 'F' ? 'she' : 'he'} honored ${pick(hero.patron.synonyms)} by journeying out to seek ${hero.sex === 'F' ? 'her' : 'his'} fortune|| on| the wine|| dark|| sea||||.`
+                                        hero.name = answer.length ? answer : parentName
+                                        let text = ` ${hero.name}. Begin when ${hero.sex === 'F' ? 'she' : 'he'} honored ${pick(hero.patron.synonyms)} by journeying out to seek ${hero.sex === 'F' ? 'her' : 'his'} fortune|| on| the wine|| dark|| sea||||.|`
                                         read(text, textbox, () => {
-                                            console.log('')
+                                            let canvas = document.getElementById('canvas')
+                                            setTimeout(() => {
+                                                canvas.classList.remove('dark')
+                                                textbox.parentElement.parentElement.classList.add('invisible')
+                                            }, 800)
+                                            setupMap()
                                         })
                                     })
                                 })
@@ -166,7 +174,70 @@ let textPrompt = (textbox, letters, callback) => {
     return prompt
 }
 
+let setupMap = () => {
+    let canvas = document.getElementById('canvas')
+    let ctx = canvas.getContext('2d')
+    let images = {
+        map: document.getElementById('map-image'),
+        polis: document.getElementById('polis-image'),
+        citadel: document.getElementById('citadel-image'),
+        redSquare: document.getElementById('red-square-image'),
+    }
+    game.worldmap = {
+        origin: {
+            x: 0,
+            y: 0,
+        },
+        width: images.map.width,
+    }
+    game.screenToWorld = (game.worldmap.width / canvas.width)
+    game.screen = {
+      origin: {
+        x: game.player.location.coordinates.x,
+        y: game.player.location.coordinates.y,
+      },
+      width: canvas.width
+    }
+    drawMap(canvas, ctx, images)
+}
+
+let drawMap = (canvas, ctx, images) => {
+    let offset = {
+        x: -game.screen.origin.x + 1040,
+        y: -game.screen.origin.y + 580,
+    }
+    ctx.drawImage(images.map, offset.x, offset.y, images.map.width, images.map.height)
+    let toDraw = Object.keys(game.data.map).filter(name => {
+        let place = game.data.map[name]
+        return (
+            place.coordinates.x > -offset.x &&
+            place.coordinates.x < -offset.x + 2080 &&
+            place.coordinates.y > -offset.y &&
+            place.coordinates.x < -offset.x + 1160
+        )
+    })
+    toDraw.forEach(name => {
+        let place = game.data.map[name]
+        let image = place.type === 'citadel' ? images.citadel : images.polis
+        console.log(name)
+        ctx.drawImage(
+            image,
+            place.coordinates.x - game.screen.origin.x + 1040 - 120,
+            place.coordinates.y - game.screen.origin.y + 580 - 180,
+            image.width / 2.4,
+            image.height / 2.4,
+        )
+        // ctx.drawImage(
+        //     images.redSquare,
+        //     place.coordinates.x - game.screen.origin.x + 1040,
+        //     place.coordinates.y - game.screen.origin.y + 580,
+        // )
+    })
+}
+
 window.addEventListener('load', narrateIntro)
+// window.addEventListener('load', drawMap)
+// document.getElementById('canvas').classList.remove('dark')
 
 /*
 Myths that could be adapted

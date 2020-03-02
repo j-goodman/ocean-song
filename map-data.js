@@ -1,5 +1,6 @@
 let Place = function (args) {
     this.name = args.name;
+    this.coordinates = args.coordinates;
     this.type = args.type; // 'citadel', 'polis', or 'wilderness'
     this.borderNames = args.borderNames; // Names of adjacent places
     this.nation = args.nation; // Hellas, Anatolia, Crete
@@ -80,7 +81,7 @@ game.data.map = {
         epithets: ['rich in springwater'],
         borderNames: ['Mycenae', 'Argos'],
     }),
-    'Thebes': new Place (
+    'Thebes': new Place ({
         name: 'Thebes',
         coordinates: {
             x: 9476,
@@ -426,7 +427,7 @@ game.data.map = {
         nation: 'Anatolia',
         adjectives: ['sheep-rich', 'once-fiery'],
         epithets: ['sacred to the smith of Olympus', 'sacred to the god of fire', 'blessed by smith-god'],
-        borderNames: [Athos', 'Troy'],
+        borderNames: ['Athos', 'Troy'],
     }),
     'Troy': new Place ({
         name: 'Troy',
@@ -438,7 +439,7 @@ game.data.map = {
         nation: 'Anatolia',
         adjectives: ['shining', 'towering', 'impenetrable', 'great', 'mighty'],
         epithets: ['by the river Scamander', 'greatest of all the Aegean cities', 'the citadel built by the gods', 'at the mouth of the fiery Hellespont', 'whose walls flash with the bronze light of the sun'],
-        borderNames: [Ismara', 'Lemnos', 'Lesbos'],
+        borderNames: ['Ismara', 'Lemnos', 'Lesbos'],
     }),
     'Astypalaia': new Place ({
         name: 'Astypalaia',
@@ -450,7 +451,7 @@ game.data.map = {
         nation: 'Crete',
         adjectives: ['pebbly-beached', 'quiet', 'Cretian'],
         epithets: ['beloved by the god of the salty seas', 'with its salty cliffs', 'with its salty cliffs', 'beloved by the god of the deep'],
-        borderNames: ['Patmos, 'Akrotiri', 'Rhodes'],
+        borderNames: ['Patmos', 'Akrotiri', 'Rhodes'],
     }),
     'Knossos': new Place ({
         name: 'Knossos',
