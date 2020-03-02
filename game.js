@@ -1,4 +1,4 @@
-game.textSpeed = 32//88
+game.textSpeed = 88
 
 let pick = (list, count=1) => {
     if (count > 1) {
