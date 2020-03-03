@@ -204,7 +204,7 @@ game.data.map = {
     'Delos': new Place ({
         name: 'Delos',
         coordinates: {
-            x: 9908,
+            x: 9888,
             y: 5315,
         },
         type: 'polis',
@@ -217,7 +217,7 @@ game.data.map = {
         name: 'Ikaria',
         coordinates: {
             x: 10400,
-            y: 5800,
+            y: 5121,
         },
         type: 'polis',
         nation: 'Hellas',
@@ -264,8 +264,8 @@ game.data.map = {
     'Milos': new Place ({
         name: 'Milos',
         coordinates: {
-            x: 12830,
-            y: 9508,
+            x: 9672,
+            y: 5709,
         },
         type: 'polis',
         nation: 'Hellas',
@@ -289,7 +289,7 @@ game.data.map = {
         name: 'Samos',
         coordinates: {
             x: 10736,
-            y: 1350,
+            y: 4965,
         },
         type: 'polis',
         nation: 'Anatolia',
@@ -325,7 +325,7 @@ game.data.map = {
         name: 'Naxos',
         coordinates: {
             x: 10202,
-            y: 5465,
+            y: 5454,
         },
         type: 'polis',
         nation: 'Hellas',

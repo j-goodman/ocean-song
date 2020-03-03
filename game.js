@@ -86,7 +86,7 @@ let narrateIntro = () => {
                                     let prompt = textPrompt(textbox, game.data.alphabet, answer => {
                                         prompt.parentElement.removeChild(prompt)
                                         hero.name = answer.length ? answer : parentName
-                                        let text = ` ${hero.name}. Begin when ${hero.sex === 'F' ? 'she' : 'he'} honored ${pick(hero.patron.synonyms)} by journeying out to seek ${hero.sex === 'F' ? 'her' : 'his'} fortune|| on| the wine|| dark|| sea||||.|`
+                                        let text = ` ${hero.name}. Begin when ${hero.sex === 'F' ? 'she' : 'he'} honored ${pick(hero.patron.synonyms)} by journeying out to seek ${hero.sex === 'F' ? 'her' : 'his'} fortune|| on| the wine|| dark|| sea||||.||||`
                                         read(text, textbox, () => {
                                             let canvas = document.getElementById('canvas')
                                             setTimeout(() => {
@@ -213,7 +213,7 @@ let drawMap = (canvas, ctx, images) => {
             place.coordinates.x > -offset.x &&
             place.coordinates.x < -offset.x + 2080 &&
             place.coordinates.y > -offset.y &&
-            place.coordinates.x < -offset.x + 1160
+            place.coordinates.y < -offset.y + 1160
         )
     })
     toDraw.forEach(name => {
@@ -222,10 +222,10 @@ let drawMap = (canvas, ctx, images) => {
         console.log(name)
         ctx.drawImage(
             image,
-            place.coordinates.x - game.screen.origin.x + 1040 - 120,
-            place.coordinates.y - game.screen.origin.y + 580 - 180,
-            image.width / 2.4,
-            image.height / 2.4,
+            place.coordinates.x - game.screen.origin.x + 1040 - 198,
+            place.coordinates.y - game.screen.origin.y + 580 - 370,
+            image.width / 1.5,
+            image.height / 1.5,
         )
         // ctx.drawImage(
         //     images.redSquare,
