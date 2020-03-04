@@ -252,8 +252,8 @@ game.data.map = {
     'Syrakuse': new Place ({
         name: 'Syrakuse',
         coordinates: {
-            x: 8,
-            y: 4,
+            x: 4820,
+            y: 5520,
         },
         type: 'polis',
         nation: 'Hellas',

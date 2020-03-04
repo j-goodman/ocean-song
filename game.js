@@ -78,6 +78,7 @@ let narrateIntro = () => {
                                 let home = game.data.map[pick(placeNames.filter(name => {
                                     return ['Thrace', 'Crete', 'Hellas', 'Anatolia'].includes(game.data.map[name].nation)
                                 }))]
+                                // home = game.data.map['Syrakuse']
                                 hero.location = home
                                 let descriptor = ''
                                 descriptor = pick(home.adjectives)
@@ -206,6 +207,7 @@ let drawMap = (canvas, ctx, images) => {
         x: -game.screen.origin.x + 1040,
         y: -game.screen.origin.y + 580,
     }
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
     ctx.drawImage(images.map, offset.x, offset.y, images.map.width, images.map.height)
     let toDraw = Object.keys(game.data.map).filter(name => {
         let place = game.data.map[name]
