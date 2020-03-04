@@ -137,7 +137,7 @@ game.data.gods = [
     {
         name: 'Helios',
         adjectives: ['shining', 'radiant', 'fiery', 'fire-crowned', 'blinding', 'all-seeing', 'never-wavering'],
-        epithets: ['of the golden chariot', 'the Titan', 'the son of Hyperion', 'the charioteer', 'the blinding sun', 'whose face gladdens mortals', 'holder of the fire above', 'the blinding sun', 'who sees everything the sunlight touches', 'who journeys below the earth by night'],
+        epithets: ['of the golden chariot', 'the Titan', 'Hyperion\'s son', 'the charioteer', 'the blinding sun', 'whose face gladdens mortals', 'holder of the fire above', 'the blinding sun', 'who sees everything the sunlight touches', 'who journeys below the earth by night'],
         synonyms: ['the king of Titans', 'the burning Sun', 'the god of daylight', 'the god of the all-seeing orb', 'the daily journey-maker', 'the one who travels underground by night'],
         bonuses: {strength: 2, speed: -1, wit: 0, skill: 0}
     },
