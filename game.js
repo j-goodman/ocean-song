@@ -49,7 +49,7 @@ let narrateIntro = () => {
             }[answer]] += 4
             let text = ` ${answer}||,|| beloved by||||`
             read(text, textbox, () => {
-                let gods = pick(game.data.gods, 4)
+                let gods = pick(game.data.gods, 3)
                 let godNames = gods.map(god => {
                     return `${pick(god.adjectives)} ${god.name}`
                 })

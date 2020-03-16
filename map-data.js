@@ -144,8 +144,8 @@ game.data.map = {
     'Aulis': new Place ({
         name: 'Aulis',
         coordinates: {
-            x: 9355,
-            y: 974,
+            x: 9360,
+            y: 4576,
         },
         type: 'polis',
         nation: 'Hellas',
@@ -300,7 +300,7 @@ game.data.map = {
     'Miletos': new Place ({
         name: 'Miletos',
         coordinates: {
-            x: 11000,
+            x: 11060,
             y: 5160,
         },
         type: 'polis',
@@ -432,8 +432,8 @@ game.data.map = {
     'Troy': new Place ({
         name: 'Troy',
         coordinates: {
-            x: 10488,
-            y: 3536,
+            x: 10560,
+            y: 3560,
         },
         type: 'citadel',
         nation: 'Anatolia',
